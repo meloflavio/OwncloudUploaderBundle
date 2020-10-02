@@ -8,7 +8,7 @@ Installation
 -------------
 ####1. Composer Require 
  
-        composer require cds/cds/onwcloud-bundle  
+        composer require uft-cds/onwcloud-bundle
 
 ####2. Adicionar variaveis de ambiente 
   
