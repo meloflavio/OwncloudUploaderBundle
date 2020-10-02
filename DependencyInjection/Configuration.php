@@ -26,9 +26,9 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-            ->scalarNode('OWNCLOUD_URL')->isRequired()->end()
-            ->scalarNode('OWNCLOUD_USER')->isRequired()->end()
-            ->scalarNode('OWNCLOUD_PASSWORD')->isRequired()->end()
+            ->scalarNode('OWNCLOUD_URL')->end()
+            ->scalarNode('OWNCLOUD_USER')->end()
+            ->scalarNode('OWNCLOUD_PASSWORD')->end()
             ->end();
 
         return $builder;
