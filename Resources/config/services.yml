@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  cds.owncloud.tools:
+    class: Cds\OwncloudUploaderBundle\Storage\OwnCloudTools
+
+  cds.onwcloud_storage:
+    class : Cds\OwncloudUploaderBundle\Storage\OwnCloudStorage
+    arguments: [ '@vich_uploader.property_mapping_factory', '@cds.owncloud.tools']
