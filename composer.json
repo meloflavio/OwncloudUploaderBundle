@@ -1,5 +1,5 @@
 {
-  "name": "cds/onwcloud-bundle",
+  "name": "uft-cds/onwcloud-bundle",
   "type": "symfony-bundle",
   "description": "Onwcloud Uploader with VichUploaderBundle.",
   "keywords": ["Onwcloud","Uploader", "VichUploaderBundle"],
