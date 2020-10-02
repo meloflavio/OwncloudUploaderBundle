@@ -1,7 +1,7 @@
 <?php
 
 
-namespace UFTCds\OwncloudUploaderBundle\Storage;
+namespace MeloFlavio\OwncloudUploaderBundle\Storage;
 
 
 use Symfony\Component\DependencyInjection\ContainerInterface;

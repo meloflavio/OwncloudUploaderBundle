@@ -5,8 +5,8 @@ services:
     public: true
 
   cds.owncloud.tools:
-    class: UFTCds\OwncloudUploaderBundle\Storage\OwnCloudTools
+    class: MeloFlavio\OwncloudUploaderBundle\Storage\OwnCloudTools
 
   cds.onwcloud_storage:
-    class : UFTCds\OwncloudUploaderBundle\Storage\OwnCloudStorage
+    class : MeloFlavio\OwncloudUploaderBundle\Storage\OwnCloudStorage
     arguments: [ '@vich_uploader.property_mapping_factory', '@cds.owncloud.tools']

@@ -1,6 +1,6 @@
 <?php
 
-namespace UFTCds\OnwcloudUploaderBundle\DependencyInjection;
+namespace MeloFlavio\OnwcloudUploaderBundle\DependencyInjection;
 
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;

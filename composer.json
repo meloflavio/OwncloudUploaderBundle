@@ -1,8 +1,8 @@
 {
-  "name": "uft-cds/onwcloud-uploader-bundle",
+  "name": "meloflavio/owncloud-uploader-bundle",
   "type": "symfony-bundle",
-  "description": "Onwcloud Uploader with VichUploaderBundle.",
-  "keywords": ["Onwcloud","Uploader", "VichUploaderBundle"],
+  "description": "Owncloud Uploader with VichUploaderBundle.",
+  "keywords": ["Owncloud","Uploader", "VichUploaderBundle"],
   "homepage": "https://github.com/meloflavio",
   "license": "MIT",
   "authors": [
@@ -22,7 +22,7 @@
   "suggest": {
   },
   "autoload": {
-    "psr-4": { "UFTCds\\OnwcloudUploaderBundle\\": "" }
+    "psr-4": { "MeloFlavio\\OwncloudUploaderBundle\\": "" }
   },
   "config": {
     "optimize-autoloader": true,
