@@ -41,3 +41,7 @@ cds_owncload:
     OWNCLOUD_USER: '%env(resolve:OWNCLOUD_USER)%'
     OWNCLOUD_PASSWORD: '%env(resolve:OWNCLOUD_PASSWORD)%'
 ```
+####5. configure a Entity 
+Siga os passos para uso VichUploaderBundle exemplo em:
+ https://github.com/dustin10/VichUploaderBundle/blob/master/docs/usage.md 
+ 
