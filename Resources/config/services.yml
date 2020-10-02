@@ -5,8 +5,8 @@ services:
     public: true
 
   cds.owncloud.tools:
-    class: Cds\OwncloudUploaderBundle\Storage\OwnCloudTools
+    class: UFTCds\OwncloudUploaderBundle\Storage\OwnCloudTools
 
   cds.onwcloud_storage:
-    class : Cds\OwncloudUploaderBundle\Storage\OwnCloudStorage
+    class : UFTCds\OwncloudUploaderBundle\Storage\OwnCloudStorage
     arguments: [ '@vich_uploader.property_mapping_factory', '@cds.owncloud.tools']

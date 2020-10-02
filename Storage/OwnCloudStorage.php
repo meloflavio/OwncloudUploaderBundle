@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Cds\OwncloudUploaderBundle\Storage;
+namespace UFTCds\OwncloudUploaderBundle\Storage;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\PropertyMapping;

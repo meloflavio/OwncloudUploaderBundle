@@ -1,5 +1,5 @@
 {
-  "name": "uft-cds/onwcloud-bundle",
+  "name": "uft-cds/onwcloud-uploader-bundle",
   "type": "symfony-bundle",
   "description": "Onwcloud Uploader with VichUploaderBundle.",
   "keywords": ["Onwcloud","Uploader", "VichUploaderBundle"],
@@ -22,7 +22,7 @@
   "suggest": {
   },
   "autoload": {
-    "psr-4": { "Cds\\OnwcloudUploaderBundle\\": "" }
+    "psr-4": { "UFTCds\\OnwcloudUploaderBundle\\": "" }
   },
   "config": {
     "optimize-autoloader": true,

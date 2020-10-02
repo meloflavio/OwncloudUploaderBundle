@@ -1,6 +1,6 @@
 <?php
 
-namespace Cds\OnwcloudUploaderBundle\DependencyInjection;
+namespace UFTCds\OnwcloudUploaderBundle\DependencyInjection;
 
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;

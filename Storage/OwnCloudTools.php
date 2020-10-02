@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Cds\OwncloudUploaderBundle\Storage;
+namespace UFTCds\OwncloudUploaderBundle\Storage;
 
 
 use Symfony\Component\DependencyInjection\ContainerInterface;

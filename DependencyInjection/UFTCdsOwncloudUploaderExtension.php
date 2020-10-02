@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Cds\OwncloudUploaderBundle\DependencyInjection;
+namespace UFTCds\OwncloudUploaderBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
 
-class CdsOwncloudUploaderExtension  extends Extension
+class UFTCdsOwncloudUploaderExtension  extends Extension
 {
 
     public function load(array $configs, ContainerBuilder $container)
