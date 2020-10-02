@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
 
-class MeloFlavioOwncloudUploaderExtension  extends Extension
+class MeloFlavioOwncloudUploaderExtension extends Extension
 {
 
     public function load(array $configs, ContainerBuilder $container)
