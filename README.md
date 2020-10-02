@@ -1,4 +1,4 @@
-NotificacaoBundle
+OwncloudUploaderBundle
 ================
 
 Bundle de integração com symfony flex e mercure bundle para notificações.
