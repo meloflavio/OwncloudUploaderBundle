@@ -36,7 +36,7 @@ vich_uploader:
 ####4. Adicionar em cds_owncloud.yaml ou adicionar em vich_uploader.yaml 
 
 ```yaml
-cds_uploader:
+melo_flavio_owncloud_uploader:
     OWNCLOUD_URL: '%env(resolve:OWNCLOUD_URL)%'
     OWNCLOUD_USER: '%env(resolve:OWNCLOUD_USER)%'
     OWNCLOUD_PASSWORD: '%env(resolve:OWNCLOUD_PASSWORD)%'
