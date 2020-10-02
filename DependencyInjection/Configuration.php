@@ -17,11 +17,11 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         if (Kernel::VERSION_ID >= 40200) {
-            $builder = new TreeBuilder('cds_uploader');
+            $builder = new TreeBuilder('melo_flavio_owncloud_uploader');
             $rootNode = $builder->getRootNode();
         } else {
             $builder = new TreeBuilder();
-            $rootNode = $builder->root('cds_uploader');
+            $rootNode = $builder->root('melo_flavio_owncloud_uploader');
         }
 
         $rootNode
