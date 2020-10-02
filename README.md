@@ -28,7 +28,7 @@ vich_uploader:
     mappings:
         resposta_anexo:
             uri_prefix: /ANEXO/RESPOSTAS                              #pasta padrao para os arquivos do owncloud
-            upload_destination: '%OWNCLOUD_URL%/remote.php/webdav/'
+            upload_destination: '%melo_flavio_owncloud_uploader.owncloud_url%/remote.php/webdav/'
             namer:
                 service: Vich\UploaderBundle\Naming\PropertyNamer
                 options: { property: 'fileName' }

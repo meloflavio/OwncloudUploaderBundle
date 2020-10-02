@@ -42,11 +42,11 @@ class OwnCloudTools
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        $this->baseUrl = $container->getParameter('cds_uploader.owncloud_url');
+        $this->baseUrl = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_url');
         $this->uploadUrl = $this->baseUrl.'/remote.php/webdav/';
         $this->shareUrl = $this->baseUrl. '/ocs/v1.php/apps/files_sharing/api/v1/shares';
-        $this->user = $container->getParameter('cds_uploader.owncloud_user');
-        $this->password = $container->getParameter('cds_uploader.owncloud_password');
+        $this->user = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_user');
+        $this->password = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_password');
     }
 
     public function inicializar(){
