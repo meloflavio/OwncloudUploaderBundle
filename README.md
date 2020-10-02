@@ -8,7 +8,7 @@ Installation
 -------------
 ####1. Composer Require 
  
-        composer require uft-cds/onwcloud-bundle
+        composer require meloflavio/owncloud-uploader-bundle
 
 ####2. Adicionar variaveis de ambiente 
   
@@ -24,7 +24,7 @@ Adicionar o storage do owncload demais opções podem ser alteradas
 ```yaml
 vich_uploader:
     db_driver: orm
-    storage: '@cds.onwcloud_storage'                                  #storage do onwcloud uploader
+    storage: '@cds.owncloud_storage'                                  #storage do onwcloud uploader
     mappings:
         resposta_anexo:
             uri_prefix: /ANEXO/RESPOSTAS                              #pasta padrao para os arquivos do owncloud
