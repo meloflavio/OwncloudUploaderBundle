@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         if (Kernel::VERSION_ID >= 40200) {
-            $builder = new TreeBuilder('vich_uploader');
+            $builder = new TreeBuilder('cds_uploader');
             $rootNode = $builder->getRootNode();
         } else {
             $builder = new TreeBuilder();
