@@ -33,7 +33,7 @@ vich_uploader:
                 service: Vich\UploaderBundle\Naming\PropertyNamer
                 options: { property: 'fileName' }
  ```
-####4. Adicionar em cds_owncloud.yaml ou adicionar em vich_uploader.yaml 
+####4. Adicionar em melo_flavio_owncloud_uploader.yaml ou adicionar em vich_uploader.yaml 
 
 ```yaml
 melo_flavio_owncloud_uploader:
