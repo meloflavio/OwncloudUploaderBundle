@@ -1,7 +1,7 @@
 OwncloudUploaderBundle
 ================
 
-Bundle de integração com symfony flex e mercure bundle para notificações.
+Bundle de integração do ownacloud com vich uploader bundle para notificações.
 
 
 Installation
