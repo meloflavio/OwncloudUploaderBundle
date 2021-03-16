@@ -150,7 +150,11 @@ class OwnCloudTools
         try{
             $data['status'] = $json_decode->meta->status;
             $data['code'] = $json_decode->meta->statuscode;
-            $data['url'] = $json_decode->data->element->url;
+            if(is_array($json_decode->data->element)){
+                $data['url'] = array_pop($json_decode->data->element)->url;
+            }else{
+                $data['url'] = $json_decode->data->element->url;
+            }
         }catch (\Exception $exception){
             return false;
         }
