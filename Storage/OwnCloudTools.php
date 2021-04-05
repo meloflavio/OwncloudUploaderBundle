@@ -1,8 +1,6 @@
 <?php
 
-
 namespace MeloFlavio\OwncloudUploaderBundle\Storage;
-
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -61,9 +59,15 @@ class OwnCloudTools
         return $h;
     }
 
+    function noramtizeName(string $name){
+        return  str_replace(' ', '_', $name);
+    }
+
     function resolveUri(PropertyMapping $mapping, string $name,?string $dir){
+        $name = $this->noramtizeName($name);
         $path = !empty($dir) ? "/".$dir.'/'.$name : $mapping->getUriPrefix()."/$name";
         $data = $this->getShareUrl($path);
+
         if(!$data) {
             return "#";
         }
@@ -71,6 +75,7 @@ class OwnCloudTools
     }
 
     function resolvePath(PropertyMapping $mapping, ?string $dir, string $name, ?bool $relative = false){
+        $name = $this->noramtizeName($name);
         $path = !empty($dir) ? $dir.'/'.$name :  $mapping->getUriPrefix()."/$name";
 
         if ($relative) {
@@ -80,6 +85,7 @@ class OwnCloudTools
     }
 
     public function deleteFile(PropertyMapping $mapping, ?string $dir, string $name){
+        $name = $this->noramtizeName($name);
         if('' == $dir){
             $dir = $mapping->getUriPrefix();
         }
@@ -100,6 +106,7 @@ class OwnCloudTools
     }
     public function uploadFile(PropertyMapping $mapping, UploadedFile $file, ?string $dir, string $name){
 
+        $name = $this->noramtizeName($name);
         if('' == $dir){
             $dir = $mapping->getUriPrefix();
         }
@@ -184,6 +191,7 @@ class OwnCloudTools
             'path' => $url
         ];
         $getUrl ="?".http_build_query($data);
+
         curl_setopt($handler, CURLOPT_URL, $this->shareUrl.$getUrl);
 
 
