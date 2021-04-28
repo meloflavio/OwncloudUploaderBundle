@@ -41,7 +41,7 @@ class OwnCloudTools
     {
         $this->container = $container;
         $this->baseUrl = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_url');
-        $this->uploadUrl = $this->baseUrl.'/remote.php/webdav/';
+        $this->uploadUrl = array_values($container->getParameter('vich_uploader.mappings'))[0]['upload_destination'];
         $this->shareUrl = $this->baseUrl. '/ocs/v1.php/apps/files_sharing/api/v1/shares';
         $this->user = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_user');
         $this->password = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_password');
@@ -110,7 +110,9 @@ class OwnCloudTools
         if('' == $dir){
             $dir = $mapping->getUriPrefix();
         }
+        $this->hasFolder($dir);
         $handler = $this->inicializar();
+
         $fileString = "$dir/$name";
         $fh_res = fopen($file->getPathname(), 'r');
         $url = $this->uploadUrl.$fileString;
@@ -213,4 +215,45 @@ class OwnCloudTools
         return $this->baseUrl;
     }
 
+    /**
+     *
+     */
+    public function createFolder($url){
+
+        $handler = $this->inicializar();
+        curl_setopt($handler, CURLOPT_URL, $url);
+        curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "MKCOL");
+        $result = curl_exec($handler);
+        $httpCode = curl_getinfo($handler, CURLINFO_HTTP_CODE);
+        curl_close($handler);
+
+        if($httpCode == 204 or $httpCode == 404){
+            return true;
+        }
+        return false;
+
+    }
+
+    /**
+     *
+     */
+    public function hasFolder($dir)
+    {
+        $handler = $this->inicializar();
+        $url = $this->uploadUrl;
+        $folders = explode('/',$dir);
+        $has = true;
+        for ($i=0; $i< count($folders)-1;$i++){
+            if($folders[$i] != ''){
+                $url = $url.$folders[$i].'/';
+            }
+            curl_setopt($handler, CURLOPT_URL, $url);
+            curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "PROPFIND");
+            $result = curl_exec($handler);
+            if (strpos($result,$folders[$i+1])===false){
+                $isCreate = $this->createFolder($url.'/'.$folders[$i+1]);
+            }
+
+        }
+    }
 }
