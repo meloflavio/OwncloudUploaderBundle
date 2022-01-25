@@ -37,7 +37,7 @@ class OwnCloudStorage  extends AbstractStorage
         return $this->ownCloudTools->deleteFile( $mapping, $dir,  $name);
     }
 
-    public function resolveUri($obj, string $fieldName, ?string $className = null): ?string
+    public function resolveUri($obj, ?string $fieldName = null, ?string $className = null): ?string
     {
         [$mapping, $filename] = $this->getFilename($obj, $fieldName, $className);
 
