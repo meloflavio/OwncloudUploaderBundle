@@ -44,6 +44,7 @@ class OwnCloudTools
         $this->uploadUrl = array_values($container->getParameter('vich_uploader.mappings'))[0]['upload_destination'];
         $this->shareUrl = $this->baseUrl. '/ocs/v1.php/apps/files_sharing/api/v1/shares';
         $this->user = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_user');
+        $this->userUrl = $this->baseUrl. '/ocs/v1.php/cloud/users/'. $this->user;
         $this->password = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_password');
     }
 
@@ -255,5 +256,47 @@ class OwnCloudTools
             }
 
         }
+    }
+    
+    
+    public function formatUserTwigResponse($response){
+        $data = explode('<?xml version="1.0"?>', $response);
+        if(count($data)==0){
+            return $response;
+        }
+        $xml = simplexml_load_string($data[1]);
+        $json = json_encode($xml);
+        $json_decode = json_decode($json);
+
+        try{
+            $data['status'] = $json_decode->meta->status;
+            $data['code'] = $json_decode->meta->statuscode;
+            if(is_array($json_decode->data)){
+                $data['data'] = array_pop($json_decode->data);
+            }else{
+                $data['data'] = $json_decode->data;
+            }
+        }catch (\Exception $exception){
+            return false;
+        }
+
+        return $data['data'];
+    }
+
+
+    public function getUserInfo()
+    {
+        $handler = $this->inicializar();
+
+        curl_setopt($handler, CURLOPT_URL, $this->userUrl);
+
+
+        curl_setopt($handler, CURLOPT_POSTFIELDS, null);
+        curl_setopt($handler, CURLOPT_POST, FALSE);
+        curl_setopt($handler, CURLOPT_HTTPGET, TRUE);
+        $response = curl_exec($handler);
+
+        curl_close($handler);
+        return $this->formatUserTwigResponse($response);
     }
 }
