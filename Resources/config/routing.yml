@@ -1,0 +1,4 @@
+internal_download:
+  path: /download/doc/{obj}
+  defaults: { _controller: 'MeloFlavioOwncloudUploaderBundle:Download:download' }
+  methods:  [GET]

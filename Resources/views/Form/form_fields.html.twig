@@ -1,0 +1,20 @@
+{% block melo_flavio_internal_file_download_widget %}
+    {% spaceless %}
+        <div class="form-group ">
+            <div class="unique-choice-formrow col-sm-offset-2">
+                {% if vich_uploader_asset(value, 'anexoFile') is null or vich_uploader_asset(value, 'anexoFile') == '#' %}
+                    <i class="fa fa-exclamation"></i>
+                {% else %}
+                    <a class="{{ change_class }}"   id="{{id}}" data-color="{{ change_class }}"  target="_blank"
+                        href="{{ path("internal_download", {obj: value.id} ) }}">
+                        {% if icon_only is defined and icon_only == true %}
+                            <i class="fa fa-download"></i>
+                        {% else %}
+                            {{ value.anexo.originalname }}
+                        {% endif %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}

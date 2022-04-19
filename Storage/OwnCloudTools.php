@@ -299,4 +299,32 @@ class OwnCloudTools
         curl_close($handler);
         return $this->formatUserTwigResponse($response);
     }
+
+    public function setExpiredSharedFile($url)
+    {
+        $handler = $this->inicializar();
+        curl_setopt($handler, CURLOPT_URL, $this->shareUrl);
+        $post = [
+            'path' => $url,
+            'shareType' => 3,
+            'permissions' => 1,
+            'expireDate' => (new \DateTime())->modify('+1 day')->format('Y-m-d H:i:s')
+        ];
+        curl_setopt($handler, CURLOPT_POSTFIELDS, http_build_query($post));
+        $response = curl_exec($handler);
+        curl_close($handler);
+        return $response;
+    }
+
+    public function deleteShareUrl($id)
+    {
+
+        $handler = $this->inicializar();
+        curl_setopt($handler, CURLOPT_URL, $this->shareUrl.'/'.$id);
+
+        curl_setopt($handler, CURLOPT_CUSTOMREQUEST, "DELETE");
+        $response = curl_exec($handler);
+        curl_close($handler);
+        return $response;
+    }
 }

@@ -18,6 +18,7 @@ class MeloFlavioOwncloudUploaderExtension extends Extension
         $container->setParameter('melo_flavio_owncloud_uploader.owncloud_url', $config['OWNCLOUD_URL']);
         $container->setParameter('melo_flavio_owncloud_uploader.owncloud_user', $config['OWNCLOUD_USER']);
         $container->setParameter('melo_flavio_owncloud_uploader.owncloud_password', $config['OWNCLOUD_PASSWORD']);
+        $container->setParameter('melo_flavio_owncloud_uploader.internal_download', $config['internal_download']);
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 

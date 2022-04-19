@@ -29,6 +29,17 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('OWNCLOUD_URL')->end()
             ->scalarNode('OWNCLOUD_USER')->end()
             ->scalarNode('OWNCLOUD_PASSWORD')->end()
+            ->scalarNode('OWNCLOUD_PASSWORD')->end()
+            ->booleanNode('shared_download')->defaultTrue()->end()
+            ->arrayNode('internal_download')
+                ->addDefaultsIfNotSet()
+                ->children()
+                    ->scalarNode('class_file')
+                        ->isRequired()
+                        ->cannotBeEmpty()
+                    ->end()
+                ->end()
+            ->end()
             ->end();
 
         return $builder;
