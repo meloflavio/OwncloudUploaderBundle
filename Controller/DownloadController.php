@@ -16,10 +16,10 @@ class DownloadController extends AbstractController
 
     public function downloadAction(Request $request,  string $obj)
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
-        $class = $this->container->getParameter('melo_flavio_owncloud_uploader.internal_download');
+        $internalDonload = $this->container->getParameter('melo_flavio_owncloud_uploader.internal_download');
+        $this->denyAccessUnlessGranted($internalDonload['role_permission']);
         $storage = $this->get('cds.owncloud_storage');
-        $obj = $this->getDoctrine()->getRepository($class['class_file'])->find($obj);
+        $obj = $this->getDoctrine()->getRepository($internalDonload['class_file'])->find($obj);
         $reflector = new \ReflectionClass(get_class($obj));
 
         $field = array_filter($reflector->getProperties(),function( $field)

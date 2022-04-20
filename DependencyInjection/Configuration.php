@@ -38,6 +38,9 @@ class Configuration implements ConfigurationInterface
                         ->isRequired()
                         ->cannotBeEmpty()
                     ->end()
+                    ->scalarNode('role_permission')
+                        ->defaultValue('ROLE_USER')
+                    ->end()
                 ->end()
             ->end()
             ->end();
