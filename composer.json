@@ -28,8 +28,5 @@
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "sort-packages": true,
-    "platform": {
-      "php": "7.2.0"
-    }
   }
 }
