@@ -3,7 +3,7 @@
 
 namespace MeloFlavio\OwncloudUploaderBundle\Storage;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Vich\UploaderBundle\Mapping\PropertyMapping;
@@ -29,7 +29,7 @@ class OwnCloudStorage  extends AbstractStorage
         $this->ownCloudTools = $ownCloudTools;
     }
 
-    protected function doUpload(PropertyMapping $mapping, UploadedFile $file, ?string $dir, string $name)
+    protected function doUpload(PropertyMapping $mapping, File $file, ?string $dir, string $name)
     {
         $response = $this->ownCloudTools->uploadFile($mapping,  $file,  $dir,  $name);
     }
