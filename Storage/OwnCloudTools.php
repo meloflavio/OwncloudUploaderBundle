@@ -2,16 +2,12 @@
 
 namespace MeloFlavio\OwncloudUploaderBundle\Storage;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\PropertyMapping;
 
 class OwnCloudTools
 {
-    /**
-     * @var ContainerInterface $container
-    */
-    private $container;
     /**
      * @var string $user
      */
@@ -35,17 +31,16 @@ class OwnCloudTools
 
     /**
      * OwnCloudTools constructor.
-     * @param ContainerInterface $container
+     * @param ParameterBagInterface $params
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(ParameterBagInterface $params)
     {
-        $this->container = $container;
-        $this->baseUrl = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_url');
-        $this->uploadUrl = array_values($container->getParameter('vich_uploader.mappings'))[0]['upload_destination'];
+        $this->baseUrl = $params->get('melo_flavio_owncloud_uploader.owncloud_url');
+        $this->uploadUrl = array_values($params->get('vich_uploader.mappings'))[0]['upload_destination'];
         $this->shareUrl = $this->baseUrl. '/ocs/v1.php/apps/files_sharing/api/v1/shares';
-        $this->user = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_user');
+        $this->user = $params->get('melo_flavio_owncloud_uploader.owncloud_user');
         $this->userUrl = $this->baseUrl. '/ocs/v1.php/cloud/users/'. $this->user;
-        $this->password = $container->getParameter('melo_flavio_owncloud_uploader.owncloud_password');
+        $this->password = $params->get('melo_flavio_owncloud_uploader.owncloud_password');
     }
 
     public function inicializar(){
