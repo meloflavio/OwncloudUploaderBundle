@@ -14,18 +14,13 @@ use Vich\UploaderBundle\Storage\AbstractStorage;
 class OwnCloudStorage  extends AbstractStorage
 {
     /**
-     * @var PropertyMappingFactory
-     */
-    protected $factory;
-
-    /**
      * @var OwnCloudTools
      */
     protected $ownCloudTools;
 
     public function __construct(PropertyMappingFactory $factory, OwnCloudTools $ownCloudTools)
     {
-        $this->factory = $factory;
+        parent::__construct($factory);
         $this->ownCloudTools = $ownCloudTools;
     }
 
